@@ -12,7 +12,9 @@ const NavBar = () => {
     const links = [
         {label: 'Home', href: '/home'},
         {label: 'About', href: '/about'},
-        {label: 'Projects', href: '/projects'}
+        {label: 'Projects', href: '/projects'},
+        {label: 'Skills', href: '/skills'},
+        {label: 'Contact', href: '/contact'},
     ];
     const style:any = styles;
 
@@ -48,19 +50,18 @@ const NavBar = () => {
             }      
         </nav>
         { isMobile && <> <div className="fixed top-10 right-5 ">
-                <button className='' onClick={handleToggle}>
-                    <RxHamburgerMenu />
-                </button>
+            <button className='' onClick={handleToggle}>
+                <RxHamburgerMenu style={{ color: 'orange' }} />
+            </button>
 
             </div>
         <div>
             {isOpen && (
-                <div className='flex before:opacity-25'>
-                    <ul className="flex flex-col items-center bg-white hover:opacity-60 ease-in-out transition-opacity duration-1000 dropdown-links absolute w-full left-0">
-                        {links.map(link => <Link className={`${style.textshadow} ${currentPath === link.href ? 'text-white' : 'text-orange-400'} transition duration-1000`} key={link.href} href={link.href}>{link.label}
-                        </Link>)}
+                    <ul className="flex flex-col items-center bg-black ease-in-out absolute w-full">
+                        {links.map(link => <Link className={`pt-2 ${style.textshadow} ${currentPath === link.href ? 'text-white border-orange-400' : 'text-orange-400 '} transition duration-1000`} key={link.href} href={link.href}>{link.label}
+                        </Link>
+                        )}
                     </ul>
-                </div>
             )}
         </div></>
     
